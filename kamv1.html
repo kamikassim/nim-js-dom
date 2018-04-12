@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  
+$(function (){
+    var chips = 16;
+    var playerOneChips = 0;
+    var playerTwoChips = 0;
+    var currentPlayer = 1;
+    var chipsTakenThisTurn = 0;
+    var playerOneName = '';
+    var playerTwoName = '';
+    // A string representing the html for a chip
+    var chipHTML = '<div class="chip"></div>'; 
+    // Variables that point to different DOM elements
+    var chipContainer =    document.$('#chips');
+    var playerOneChipsContainer =   document.$('#player-one-chips');
+    var playerTwoChipsContainer =   document.$('#player-two-chips');
+    var playerOneTake =    document.$('#player-one-take');
+    var playerTwoTake =    document.$('#player-two-take');
+    var playerOnePass =    document.$('#player-one-pass');
+    var playerTwoPass =    document.$('#player-two-pass');
+    var playerOneOptions = document.$('#player-one-options');
+    var playerTwoOptions = document.$('#player-two-options');
+    var playerOneName =    document.$('#player-one-name');
+    var playerTwoName =    document.$('#player-two-name'); 
+});  
+  
+  $(function renderGame() {
+  // First, draw all the chips into the right containers
+  chipContainer.html('');
+  playerOneChipsContainer.html('');
+  playerTwoChipsContainer.html('');
+  for (var i=0; i<chips; i++) {
+    chipContainer.append(chipHTML);
+  };
+  for (var i=0; i<playerOneChips; i++) {
+    playerOneChipsContainer.append(chipHTML);
+  };
+  for (var i=0; i<playerTwoChips; i++) {
+    playerTwoChipsContainer.append(chipHTML);
+  };
+
+  // Show/Hide the appropriate action buttons
+  if (currentPlayer == 1) {
+    playerOneOptions.css("visible"); 
+    playerTwoOptions.css("hidden"); 
+  } else {
+    playerOneOptions.css("hidden");
+    playerTwoOptions.css("visible"); 
+  }
+
+  // Show the name of each player
+  playerOneName.html(playerOne);
+  playerTwoName.html(playerTwo);
+});  
+
+  //***********************
+//  KICKING IT ALL OFF
+//***********************
+$('#playerOneTake').click(function () {
+  takeChip();
+});
+
+$('#playerOneTake').click(function() {
+  takeChip();
+});
+
+$('#playerOneTake').click(function() {
+  pass();
+});
+
+$('#playerOneTake').click(function() {
+  pass();
+}); 
+  
+  </script>
+</head>
+<body>
+
+<div class="container">
+  
+  <div class="top-bar"><h1>NIM</h1></div>
+  
+  <div class="play-field">
+    <div class="left">
+      <div id="player-one-name"></div>
+      <div id="player-one-chips">
+      </div>
+      <div id="player-one-options">
+        <div id="player-one-take" class="take">TAKE</div>
+        <div id="player-one-pass" class="pass">PASS</div>
+      </div>
+    </div>
+    <div id="chips">
+      
+    </div>
+    <div class="right">
+      <div id="player-two-name"></div>
+      <div id="player-two-chips">
+      </div>
+      <div id="player-two-options">
+        <div id="player-two-take" class="take">TAKE</div>
+        <div id="player-two-pass" class="pass">PASS</div>
+      </div>
+      
+    </div>
+    
+  </div>
+ 
+</div>
+<script src="nim.js"></script>
+</body>
+</html>
